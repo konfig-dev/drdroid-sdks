@@ -4,7 +4,6 @@ info:
   description: Join event streams in real-time to setup complex alerts
   version: 1.0.0
   x-konfig-ignore:
-    object-with-no-properties: true
     potential-incorrect-type: true
 servers:
   - url: https://ingest.drdroid.io
@@ -25,6 +24,7 @@ paths:
           schema:
             type: string
           example: '{{org}}'
+          required: true
       requestBody:
         content:
           application/json:
@@ -141,6 +141,8 @@ components:
                             bool_value:
                               type: boolean
                               example: false
+      required:
+        - data
     EventIngestResponse:
       type: object
       properties:

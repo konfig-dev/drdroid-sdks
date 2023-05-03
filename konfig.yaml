@@ -9,6 +9,12 @@ fixConfig:
     $.: 
       servers:
         - url: https://ingest.drdroid.io
+    $.paths./e/ingest/events/v2.post.parameters[0]:
+      required: true
+    $.components.schemas.EventIngestRequest:
+      required:
+        - data
+
   
 generators:
   java:

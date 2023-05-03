@@ -1,0 +1,433 @@
+openapi: 3.0.0
+info:
+  description: Join event streams in real-time to setup complex alerts
+  title: Sample
+  version: 1.0.0
+  x-konfig-ignore:
+    potential-incorrect-type: true
+servers:
+- url: https://ingest.drdroid.io
+tags:
+- name: Event
+paths:
+  /e/ingest/events/v2:
+    post:
+      operationId: Event_ingest
+      parameters:
+      - example: "{{org}}"
+        explode: false
+        in: header
+        name: X-REQUEST-ORG
+        required: true
+        schema:
+          type: string
+        style: simple
+        x-konfig-original-example: "{{org}}"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventIngestRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventIngestResponse'
+          description: OK
+          headers:
+            Date:
+              explode: false
+              schema:
+                example: "Sat, 25 Feb 2023 05:59:47 GMT"
+                type: string
+                x-konfig-original-example: "Sat, 25 Feb 2023 05:59:47 GMT"
+                x-konfig-generated-schema: konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-Date-schema
+              style: simple
+            Server:
+              explode: false
+              schema:
+                example: WSGIServer/0.2 CPython/3.9.16
+                type: string
+                x-konfig-original-example: WSGIServer/0.2 CPython/3.9.16
+                x-konfig-generated-schema: konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-Server-schema
+              style: simple
+            Vary:
+              explode: false
+              schema:
+                example: "Accept, Origin"
+                type: string
+                x-konfig-original-example: "Accept, Origin"
+                x-konfig-generated-schema: konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-Vary-schema
+              style: simple
+            Allow:
+              explode: false
+              schema:
+                example: "OPTIONS, POST"
+                type: string
+                x-konfig-original-example: "OPTIONS, POST"
+                x-konfig-generated-schema: konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-Allow-schema
+              style: simple
+            X-Frame-Options:
+              explode: false
+              schema:
+                example: DENY
+                type: string
+                x-konfig-original-example: DENY
+                x-konfig-generated-schema: konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-X-Frame-Options-schema
+              style: simple
+            Content-Length:
+              explode: false
+              schema:
+                example: 14
+                type: integer
+                x-konfig-original-example: 14
+                x-konfig-generated-schema: konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-Content-Length-schema
+              style: simple
+            X-Content-Type-Options:
+              explode: false
+              schema:
+                example: nosniff
+                type: string
+                x-konfig-original-example: nosniff
+                x-konfig-generated-schema: konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-X-Content-Type-Options-schema
+              style: simple
+            Referrer-Policy:
+              explode: false
+              schema:
+                example: same-origin
+                type: string
+                x-konfig-original-example: same-origin
+                x-konfig-generated-schema: konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-Referrer-Policy-schema
+              style: simple
+            Cross-Origin-Opener-Policy:
+              explode: false
+              schema:
+                example: same-origin
+                type: string
+                x-konfig-original-example: same-origin
+                x-konfig-generated-schema: konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-Cross-Origin-Opener-Policy-schema
+              style: simple
+      security:
+      - bearerAuth: []
+      summary: Ingestion V2
+      tags:
+      - Event
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-post--e-ingest-events-v2
+      x-content-type: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    EventIngestRequest:
+      example:
+        data:
+          events:
+          - name: Schedule Delivery
+            timestamp: 1683009771000
+            kvs:
+            - key: ID
+              value:
+                string_value: "13432"
+            - key: City
+              value:
+                string_value: BLR
+            - key: IS_COD
+              value:
+                bool_value: false
+          - name: Schedule Change
+            timestamp: 1683009771000
+            kvs:
+            - key: ID1
+              value:
+                string_value: "13432"
+            - key: City2
+              value:
+                string_value: BLR
+            - key: IS_COD3
+              value:
+                bool_value: false
+      properties:
+        data:
+          $ref: '#/components/schemas/EventIngestRequest_data'
+      required:
+      - data
+      type: object
+      x-konfig-original-example:
+        data:
+          events:
+          - name: Schedule Delivery
+            timestamp: 1683009771000
+            kvs:
+            - key: ID
+              value:
+                string_value: "13432"
+            - key: City
+              value:
+                string_value: BLR
+            - key: IS_COD
+              value:
+                bool_value: false
+          - name: Schedule Change
+            timestamp: 1683009771000
+            kvs:
+            - key: ID1
+              value:
+                string_value: "13432"
+            - key: City2
+              value:
+                string_value: BLR
+            - key: IS_COD3
+              value:
+                bool_value: false
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EventIngestRequest
+    EventIngestResponse:
+      example:
+        count: "1"
+      properties:
+        count:
+          example: "1"
+          type: string
+          x-konfig-original-example: "1"
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EventIngestResponse-properties-count
+      type: object
+      x-konfig-original-example:
+        count: "1"
+      x-konfig-generated-schema: konfig-generated-schema-components-schemas-EventIngestResponse
+      x-konfig-is-used-in-successful-response: true
+    konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-Date-schema:
+      example: "Sat, 25 Feb 2023 05:59:47 GMT"
+      type: string
+      x-do-not-generate: true
+    konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-Server-schema:
+      example: WSGIServer/0.2 CPython/3.9.16
+      type: string
+      x-do-not-generate: true
+    konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-Vary-schema:
+      example: "Accept, Origin"
+      type: string
+      x-do-not-generate: true
+    konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-Allow-schema:
+      example: "OPTIONS, POST"
+      type: string
+      x-do-not-generate: true
+    konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-X-Frame-Options-schema:
+      example: DENY
+      type: string
+      x-do-not-generate: true
+    konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-Content-Length-schema:
+      example: 14
+      type: number
+      x-do-not-generate: true
+    konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-X-Content-Type-Options-schema:
+      example: nosniff
+      type: string
+      x-do-not-generate: true
+    konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-Referrer-Policy-schema:
+      example: same-origin
+      type: string
+      x-do-not-generate: true
+    konfig-generated-schema-paths--e-ingest-events-v2-post-responses-200-headers-Cross-Origin-Opener-Policy-schema:
+      example: same-origin
+      type: string
+      x-do-not-generate: true
+    konfig-generated-schema-components-schemas-EventIngestRequest:
+      example:
+        data:
+          events:
+          - name: Schedule Delivery
+            timestamp: 1683009771000
+            kvs:
+            - key: ID
+              value:
+                string_value: "13432"
+            - key: City
+              value:
+                string_value: BLR
+            - key: IS_COD
+              value:
+                bool_value: false
+          - name: Schedule Change
+            timestamp: 1683009771000
+            kvs:
+            - key: ID1
+              value:
+                string_value: "13432"
+            - key: City2
+              value:
+                string_value: BLR
+            - key: IS_COD3
+              value:
+                bool_value: false
+      properties:
+        data:
+          properties:
+            events:
+              items:
+                properties:
+                  name:
+                    example: Schedule Delivery
+                    type: string
+                  timestamp:
+                    example: 1683009771000
+                    type: number
+                  kvs:
+                    items:
+                      properties:
+                        key:
+                          example: ID
+                          type: string
+                        value:
+                          properties:
+                            string_value:
+                              example: "13432"
+                              type: string
+                            bool_value:
+                              example: false
+                              type: boolean
+                          type: object
+                      type: object
+                    type: array
+                type: object
+              type: array
+          type: object
+      type: object
+      x-do-not-generate: true
+    konfig-generated-schema-components-schemas-EventIngestRequest-properties-data-properties-events-items-properties-name:
+      example: Schedule Delivery
+      type: string
+      x-do-not-generate: true
+    konfig-generated-schema-components-schemas-EventIngestRequest-properties-data-properties-events-items-properties-timestamp:
+      example: 1683009771000
+      type: number
+      x-do-not-generate: true
+    ? konfig-generated-schema-components-schemas-EventIngestRequest-properties-data-properties-events-items-properties-kvs-items-properties-key
+    : example: ID
+      type: string
+      x-do-not-generate: true
+    ? konfig-generated-schema-components-schemas-EventIngestRequest-properties-data-properties-events-items-properties-kvs-items-properties-value-properties-string_value
+    : example: "13432"
+      type: string
+      x-do-not-generate: true
+    ? konfig-generated-schema-components-schemas-EventIngestRequest-properties-data-properties-events-items-properties-kvs-items-properties-value-properties-bool_value
+    : example: false
+      type: boolean
+      x-do-not-generate: true
+    konfig-generated-schema-components-schemas-EventIngestResponse:
+      example:
+        count: "1"
+      properties:
+        count:
+          example: "1"
+          type: string
+      type: object
+      x-do-not-generate: true
+    konfig-generated-schema-components-schemas-EventIngestResponse-properties-count:
+      example: "1"
+      type: string
+      x-do-not-generate: true
+    konfig-generated-schema-single-parameter-schema-post--e-ingest-events-v2:
+      properties:
+        X-REQUEST-ORG:
+          type: string
+        data:
+          properties:
+            events:
+              items:
+                properties:
+                  name:
+                    example: Schedule Delivery
+                    type: string
+                    x-konfig-original-example: Schedule Delivery
+                    x-konfig-generated-schema: konfig-generated-schema-components-schemas-EventIngestRequest-properties-data-properties-events-items-properties-name
+                  timestamp:
+                    example: 1683009771000
+                    type: number
+                    x-konfig-original-example: 1683009771000
+                    x-konfig-generated-schema: konfig-generated-schema-components-schemas-EventIngestRequest-properties-data-properties-events-items-properties-timestamp
+                  kvs:
+                    items:
+                      properties:
+                        key:
+                          example: ID
+                          type: string
+                          x-konfig-original-example: ID
+                          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EventIngestRequest-properties-data-properties-events-items-properties-kvs-items-properties-key
+                        value:
+                          properties:
+                            string_value:
+                              example: "13432"
+                              type: string
+                              x-konfig-original-example: "13432"
+                              x-konfig-generated-schema: konfig-generated-schema-components-schemas-EventIngestRequest-properties-data-properties-events-items-properties-kvs-items-properties-value-properties-string_value
+                            bool_value:
+                              example: false
+                              type: boolean
+                              x-konfig-original-example: false
+                              x-konfig-generated-schema: konfig-generated-schema-components-schemas-EventIngestRequest-properties-data-properties-events-items-properties-kvs-items-properties-value-properties-bool_value
+                          type: object
+                      type: object
+                    type: array
+                type: object
+              type: array
+          type: object
+      required:
+      - X-REQUEST-ORG
+      - data
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - X-REQUEST-ORG
+    EventIngestRequest_data_events_inner_kvs_inner_value:
+      properties:
+        string_value:
+          example: "13432"
+          type: string
+          x-konfig-original-example: "13432"
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EventIngestRequest-properties-data-properties-events-items-properties-kvs-items-properties-value-properties-string_value
+        bool_value:
+          example: false
+          type: boolean
+          x-konfig-original-example: false
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EventIngestRequest-properties-data-properties-events-items-properties-kvs-items-properties-value-properties-bool_value
+      type: object
+    EventIngestRequest_data_events_inner_kvs_inner:
+      properties:
+        key:
+          example: ID
+          type: string
+          x-konfig-original-example: ID
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EventIngestRequest-properties-data-properties-events-items-properties-kvs-items-properties-key
+        value:
+          $ref: '#/components/schemas/EventIngestRequest_data_events_inner_kvs_inner_value'
+      type: object
+    EventIngestRequest_data_events_inner:
+      properties:
+        name:
+          example: Schedule Delivery
+          type: string
+          x-konfig-original-example: Schedule Delivery
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EventIngestRequest-properties-data-properties-events-items-properties-name
+        timestamp:
+          example: 1683009771000
+          type: number
+          x-konfig-original-example: 1683009771000
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-EventIngestRequest-properties-data-properties-events-items-properties-timestamp
+        kvs:
+          items:
+            $ref: '#/components/schemas/EventIngestRequest_data_events_inner_kvs_inner'
+          type: array
+      type: object
+    EventIngestRequest_data:
+      properties:
+        events:
+          items:
+            $ref: '#/components/schemas/EventIngestRequest_data_events_inner'
+          type: array
+      type: object
+  securitySchemes:
+    bearerAuth:
+      scheme: bearer
+      type: http
+      x-konfig-globally-required-security: true
+

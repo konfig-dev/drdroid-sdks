@@ -5,7 +5,7 @@ examples_2:
     post:
       count: '1'
 fixOnlyOneTagName: false
-ignoreObjectsWithNoProperties: true
+ignoreObjectsWithNoProperties: false
 ignorePotentialIncorrectType: true
 operationIds:
   /e/ingest/events/v2:
