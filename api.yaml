@@ -1,0 +1,151 @@
+openapi: 3.0.0
+info:
+  title: Sample
+  description: Join event streams in real-time to setup complex alerts
+  version: 1.0.0
+  x-konfig-ignore:
+    object-with-no-properties: true
+    potential-incorrect-type: true
+servers:
+  - url: https://ingest.drdroid.io
+tags:
+  - name: Event
+paths:
+  /e/ingest/events/v2:
+    post:
+      tags:
+        - Event
+      summary: Ingestion V2
+      operationId: Event_ingest
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: X-REQUEST-ORG
+          in: header
+          schema:
+            type: string
+          example: '{{org}}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventIngestRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Sat, 25 Feb 2023 05:59:47 GMT
+            Server:
+              schema:
+                type: string
+                example: WSGIServer/0.2 CPython/3.9.16
+            Vary:
+              schema:
+                type: string
+                example: Accept, Origin
+            Allow:
+              schema:
+                type: string
+                example: OPTIONS, POST
+            X-Frame-Options:
+              schema:
+                type: string
+                example: DENY
+            Content-Length:
+              schema:
+                type: integer
+                example: 14
+            X-Content-Type-Options:
+              schema:
+                type: string
+                example: nosniff
+            Referrer-Policy:
+              schema:
+                type: string
+                example: same-origin
+            Cross-Origin-Opener-Policy:
+              schema:
+                type: string
+                example: same-origin
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventIngestResponse'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    EventIngestRequest:
+      type: object
+      example:
+        data:
+          events:
+            - name: Schedule Delivery
+              timestamp: 1683009771000
+              kvs:
+                - key: ID
+                  value:
+                    string_value: '13432'
+                - key: City
+                  value:
+                    string_value: BLR
+                - key: IS_COD
+                  value:
+                    bool_value: false
+            - name: Schedule Change
+              timestamp: 1683009771000
+              kvs:
+                - key: ID1
+                  value:
+                    string_value: '13432'
+                - key: City2
+                  value:
+                    string_value: BLR
+                - key: IS_COD3
+                  value:
+                    bool_value: false
+      properties:
+        data:
+          type: object
+          properties:
+            events:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: Schedule Delivery
+                  timestamp:
+                    type: number
+                    example: 1683009771000
+                  kvs:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        key:
+                          type: string
+                          example: ID
+                        value:
+                          type: object
+                          properties:
+                            string_value:
+                              type: string
+                              example: '13432'
+                            bool_value:
+                              type: boolean
+                              example: false
+    EventIngestResponse:
+      type: object
+      properties:
+        count:
+          type: string
+          example: '1'
+      example:
+        count: '1'

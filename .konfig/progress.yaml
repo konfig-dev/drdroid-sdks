@@ -1,0 +1,28 @@
+description: Join event streams in real-time to setup complex alerts
+examples: {}
+examples_2:
+  /e/ingest/events/v2:
+    post:
+      count: '1'
+fixOnlyOneTagName: false
+ignoreObjectsWithNoProperties: true
+ignorePotentialIncorrectType: true
+operationIds:
+  /e/ingest/events/v2:
+    post: Event_ingest
+operationTags: {}
+renameTags:
+  default: Event
+requestSchemaNames:
+  /e/ingest/events/v2:
+    post:
+      application/json: EventIngestRequest
+responseDescriptions: {}
+responseSchemaNames:
+  /e/ingest/events/v2:
+    post:
+      '200':
+        application/json: EventIngestResponse
+securityParameters:
+  X-REQUEST-ORG:
+    header: false
