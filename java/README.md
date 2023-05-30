@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>io.drdroid</groupId>
+  <groupId>com.konfigthis</groupId>
   <artifactId>drdroid-java-sdk</artifactId>
   <version>1.0.0</version>
   <scope>compile</scope>
@@ -60,7 +60,7 @@ repositories {
 }
 
 dependencies {
-   implementation "io.drdroid:drdroid-java-sdk:1.0.0"
+   implementation "com.konfigthis:drdroid-java-sdk:1.0.0"
 }
 ```
 
@@ -105,13 +105,13 @@ Then manually install the following JARs:
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
-import io.drdroid.client.ApiClient;
-import io.drdroid.client.ApiException;
-import io.drdroid.client.ApiResponse;
-import io.drdroid.client.Configuration;
-import io.drdroid.client.auth.*;
-import io.drdroid.client.model.*;
-import io.drdroid.client.api.EventApi;
+import com.konfigthis.client.ApiClient;
+import com.konfigthis.client.ApiException;
+import com.konfigthis.client.ApiResponse;
+import com.konfigthis.client.Configuration;
+import com.konfigthis.client.auth.*;
+import com.konfigthis.client.model.*;
+import com.konfigthis.client.api.EventApi;
 
 public class Example {
   public static void main(String[] args) {

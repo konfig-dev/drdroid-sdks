@@ -15,13 +15,13 @@ Ingestion V2
 
 ### Example
 ```java
-import io.drdroid.client.ApiClient;
-import io.drdroid.client.ApiException;
-import io.drdroid.client.ApiResponse;
-import io.drdroid.client.Configuration;
-import io.drdroid.client.auth.*;
-import io.drdroid.client.model.*;
-import io.drdroid.client.api.EventApi;
+import com.konfigthis.client.ApiClient;
+import com.konfigthis.client.ApiException;
+import com.konfigthis.client.ApiResponse;
+import com.konfigthis.client.Configuration;
+import com.konfigthis.client.auth.*;
+import com.konfigthis.client.model.*;
+import com.konfigthis.client.api.EventApi;
 
 public class Example {
   public static void main(String[] args) {

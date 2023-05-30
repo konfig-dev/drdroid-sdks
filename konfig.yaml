@@ -6,7 +6,7 @@ specInputPath: result.yaml
 specPath: api.yaml
 fixConfig:
   update:
-    $.: 
+    $.:
       servers:
         - url: https://ingest.drdroid.io
     $.paths./e/ingest/events/v2.post.parameters[0]:
@@ -15,11 +15,11 @@ fixConfig:
       required:
         - data
 
-  
+
 generators:
   java:
     version: 1.0.0
-    groupId: io.drdroid
+    groupId: com.konfigthis
     artifactId: drdroid-java-sdk
     outputDirectory: java
     git:
