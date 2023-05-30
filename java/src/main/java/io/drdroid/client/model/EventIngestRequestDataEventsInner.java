@@ -36,6 +36,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -68,6 +69,9 @@ public class EventIngestRequestDataEventsInner {
   }
 
   public EventIngestRequestDataEventsInner name(String name) {
+
+    
+    
     
     
     this.name = name;
@@ -87,12 +91,18 @@ public class EventIngestRequestDataEventsInner {
 
 
   public void setName(String name) {
+
+    
+    
     
     this.name = name;
   }
 
 
   public EventIngestRequestDataEventsInner timestamp(Double timestamp) {
+
+    
+    
     
     
     this.timestamp = timestamp;
@@ -100,6 +110,9 @@ public class EventIngestRequestDataEventsInner {
   }
 
   public EventIngestRequestDataEventsInner timestamp(Integer timestamp) {
+
+    
+    
     
     
     this.timestamp = timestamp.doubleValue();
@@ -119,12 +132,18 @@ public class EventIngestRequestDataEventsInner {
 
 
   public void setTimestamp(Double timestamp) {
+
+    
+    
     
     this.timestamp = timestamp;
   }
 
 
   public EventIngestRequestDataEventsInner kvs(List<EventIngestRequestDataEventsInnerKvsInner> kvs) {
+
+    
+    
     
     
     this.kvs = kvs;
@@ -152,6 +171,9 @@ public class EventIngestRequestDataEventsInner {
 
 
   public void setKvs(List<EventIngestRequestDataEventsInnerKvsInner> kvs) {
+
+    
+    
     
     this.kvs = kvs;
   }

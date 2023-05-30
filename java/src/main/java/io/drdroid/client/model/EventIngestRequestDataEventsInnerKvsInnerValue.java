@@ -33,6 +33,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -61,6 +62,9 @@ public class EventIngestRequestDataEventsInnerKvsInnerValue {
   }
 
   public EventIngestRequestDataEventsInnerKvsInnerValue stringValue(String stringValue) {
+
+    
+    
     
     
     this.stringValue = stringValue;
@@ -80,12 +84,18 @@ public class EventIngestRequestDataEventsInnerKvsInnerValue {
 
 
   public void setStringValue(String stringValue) {
+
+    
+    
     
     this.stringValue = stringValue;
   }
 
 
   public EventIngestRequestDataEventsInnerKvsInnerValue boolValue(Boolean boolValue) {
+
+    
+    
     
     
     this.boolValue = boolValue;
@@ -105,6 +115,9 @@ public class EventIngestRequestDataEventsInnerKvsInnerValue {
 
 
   public void setBoolValue(Boolean boolValue) {
+
+    
+    
     
     this.boolValue = boolValue;
   }

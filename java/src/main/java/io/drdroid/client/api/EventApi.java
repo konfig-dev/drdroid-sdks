@@ -193,7 +193,7 @@ public class EventApi {
         public EventIngestResponse execute() throws ApiException {
             EventIngestRequest eventIngestRequest = buildBodyParams();
             ApiResponse<EventIngestResponse> localVarResp = ingestWithHttpInfo(X_REQUEST_ORG, eventIngestRequest);
-            return localVarResp.getData();
+            return localVarResp.getResponseBody();
         }
 
         /**
@@ -242,6 +242,8 @@ public class EventApi {
     public IngestRequestBuilder ingest(EventIngestRequestData data, String X_REQUEST_ORG) throws IllegalArgumentException {
         if (data == null) throw new IllegalArgumentException("\"data\" is required but got null");
         if (X_REQUEST_ORG == null) throw new IllegalArgumentException("\"X_REQUEST_ORG\" is required but got null");
+            
+
         return new IngestRequestBuilder(data, X_REQUEST_ORG);
     }
 }

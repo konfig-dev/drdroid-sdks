@@ -146,9 +146,10 @@ public class Example {
       ApiResponse<EventIngestResponse> response = api
               .ingest(data, X_REQUEST_ORG)
               .executeWithHttpInfo();
-      System.out.println(response.getData());
-      System.out.println(response.getHeaders());
+      System.out.println(response.getResponseBody());
+      System.out.println(response.getResponseHeaders());
       System.out.println(response.getStatusCode());
+      System.out.println(response.getRoundTripTime());
       System.out.println(response.getRequest());
     } catch (ApiException e) {
       System.err.println("Exception when calling EventApi#ingest");

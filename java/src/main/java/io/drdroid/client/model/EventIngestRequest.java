@@ -34,6 +34,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -58,6 +59,9 @@ public class EventIngestRequest {
   }
 
   public EventIngestRequest data(EventIngestRequestData data) {
+
+    
+    
     
     
     this.data = data;
@@ -77,6 +81,9 @@ public class EventIngestRequest {
 
 
   public void setData(EventIngestRequestData data) {
+
+    
+    
     
     this.data = data;
   }
