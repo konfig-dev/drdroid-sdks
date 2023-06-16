@@ -4,9 +4,7 @@ This demo enables you to simulate events of a **data ingestion and processing pi
 
 ### Generate Events
 
-Replace PUT_YOUR_API_KEY_HERE below with your unique key.
-
-Don't have a key? Get your key :a[https://app.drdroid.io/events]{href=https://app.drdroid.io/events target=\_blank}.
+Get your key :a[https://app.drdroid.io/signup]{href=https://app.drdroid.io/signup target=\_blank}.
 
 :::form
 
