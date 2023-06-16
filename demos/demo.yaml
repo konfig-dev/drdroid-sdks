@@ -1,0 +1,5 @@
+organizationName: Dr. Droid
+portalName: DrDroid Simulations
+demos:
+  - id: payment-wallet
+  - id: data-processing
