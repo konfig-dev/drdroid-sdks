@@ -1,5 +1,8 @@
 organizationName: Dr. Droid
 portalName: DrDroid Simulations
+socials:
+  website: https://drdroid.io/
+  documentation: https://docs.drdroid.io/docs
 demos:
   - id: payment-wallet
   - id: data-processing
