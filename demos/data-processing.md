@@ -11,7 +11,7 @@ Get your key :a[https://app.drdroid.io/signup]{href=https://app.drdroid.io/signu
 ::input{name=API_KEY label="Dr. Droid API Key" description="Your unique key" type="password"}
 
 ```python
-%env DRDROID_AUTH_TOKEN = API_KEY
+%env DRDROID_AUTH_TOKEN = $API_KEY
 %env DRDROID_HOSTNAME = https://ingest.drdroid.io
 %env DRDROID_DEBUG = False
 
